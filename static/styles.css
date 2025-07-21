@@ -1,0 +1,141 @@
+/* General Styles - Neon Dark Mode */
+body {
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(to bottom, #141e30, #243b55);
+    color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Keyframe for the glowing border animation */
+@keyframes rotateGlow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Login Container with Animated Gradient Border */
+.login {
+    max-width: 500px;
+    width: 100%;
+    padding: 40px 30px;
+    background: #1c1c1c;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.2);
+    position: relative;
+    overflow: hidden; /* Important for the glowing border effect */
+}
+
+/* The animated glowing border element */
+.login::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent,
+        rgba(0, 191, 255, 1), /* Deep Sky Blue */
+        transparent 30%
+    );
+    animation: rotateGlow 4s linear infinite;
+}
+
+/* A solid background layer to put on top of the animation, creating the border */
+.login::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: #1c1c1c;
+    border-radius: 8px;
+}
+
+/* Bring all form content above the pseudo-elements */
+.login > * {
+    position: relative;
+    z-index: 10;
+}
+
+
+/* Headings with Neon Text Effect */
+.login h1, .login legend {
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(0, 191, 255, 0.7),
+                 0 0 10px rgba(0, 191, 255, 0.5);
+    margin-bottom: 30px;
+}
+
+.login h1 { font-size: 28px; }
+.login legend { font-size: 20px; }
+
+/* Form Labels */
+.login .form-label {
+    display: block;
+    font-size: 14px;
+    color: #a0a0a0;
+    margin-bottom: 8px;
+}
+
+/* Form Controls with Neon Focus */
+.login .form-control {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #2b2b2b;
+    color: #ffffff;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login .form-control:focus {
+    outline: none;
+    border-color: #00bfff; /* Deep Sky Blue */
+    box-shadow: 0 0 10px #00bfff;
+}
+
+/* Neon Ghost Button */
+.login .btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #00bfff;
+    background: transparent;
+    border: 2px solid #00bfff;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.login .btn:hover {
+    background: linear-gradient(90deg, rgba(0,191,255,0.2), rgba(0,191,255,0.4));
+    color: #ffffff;
+    box-shadow: 0 0 20px #00bfff;
+}
+
+/* Prediction Result - Glowing Green */
+.login h2 {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 25px;
+    color: #23d18b; /* Bright Green */
+    text-shadow: 0 0 5px #23d18b;
+}
